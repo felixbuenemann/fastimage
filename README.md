@@ -1,8 +1,10 @@
-h1. FastImage
+FastImage
+=========
 
-h4. FastImage finds the size or type of an image given its uri by fetching as little as needed
+### FastImage finds the size or type of an image given its uri by fetching as little as needed
 
-h2. The problem
+The problem
+-----------
 
 Your app needs to find the size or type of an image.  This could be for adding width and height attributes to an image tag, for adjusting layouts or overlays to fit an image or any other of dozens of reasons.
 
@@ -14,11 +16,12 @@ FastImage does this minimal fetch for image types GIF, JPEG, PNG and BMP.  And i
 
 You only need supply the uri, and FastImage will do the rest.
 
-h2. Features
+Features
+--------
 
 Fastimage can also read local (and other) files, and uses the open-uri library to do so.
 
-FastImage will automatically read from any object that responds to :read - for 
+FastImage will automatically read from any object that responds to :read - for
 instance an IO object if that is passed instead of a URI.
 
 FastImage will follow up to 4 HTTP redirects to get the image.
@@ -29,10 +32,10 @@ You can add a timeout to the request which will limit the request time by passin
 
 FastImage normally replies will nil if it encounters an error, but you can pass :raise_on_failure => true to get an exception.
 
-h2. Examples
+Examples
+--------
 
-<pre>
-<code>
+```ruby
 require 'fastimage'
 
 FastImage.size("http://stephensykes.com/images/ss.com_x.gif")
@@ -45,62 +48,57 @@ FastImage.size("http://upload.wikimedia.org/wikipedia/commons/b/b4/Mardin_135066
 => FastImage::ImageFetchFailure: FastImage::ImageFetchFailure
 FastImage.size("http://upload.wikimedia.org/wikipedia/commons/b/b4/Mardin_1350660_1350692_33_images.jpg", :raise_on_failure=>true, :timeout=>2.0)
 => [9545, 6623]
-</code>
-</pre>
+```
 
-h2. Installation
+Installation
+------------
 
-h4. Gem
+### Gem
 
-<pre>
-<code>
-  gem install fastimage
-</code>
-</pre>
+```
+gem install fastimage
+```
 
-h4. Rails
+### Rails
 
 Install the gem as above, and add it to your Gemfile if you are using bundler, or configure it in your environment.rb file as below:
-<pre>
-<code>
-...
+```ruby
 Rails::Initializer.run do |config|
-  ...
   config.gem "fastimage"
-  ...
 end
-...
-</code>
-</pre>
-Then you're off - just use FastImage.size() and FastImage.type() in your code as in the examples.
+```
+Then you're off - just use `FastImage.size()` and `FastImage.type()` in your code as in the examples.
 
-h2. Documentation
+Documentation
+-------------
 
-"http://rdoc.info/projects/sdsykes/fastimage":http://rdoc.info/projects/sdsykes/fastimage
+http://rdoc.info/projects/sdsykes/fastimage
 
-h2. Tests
+Tests
+-----
 
 You'll need to 'sudo gem install fakeweb' to be able to run the tests.
 
-<pre>
-<code>
-ruby test/test.rb
+```
+ruby ./test/test.rb
 Loaded suite test/test
 Started
 ...............
 Finished in 0.059392 seconds.
 
 15 tests, 27 assertions, 0 failures, 0 errors
-</code>
-</pre>
+```
 
 
-h2. References
-* "http://pennysmalls.com/find-jpeg-dimensions-fast-in-pure-ruby-no-ima":http://pennysmalls.com/find-jpeg-dimensions-fast-in-pure-ruby-no-ima
-* "http://snippets.dzone.com/posts/show/805":http://snippets.dzone.com/posts/show/805
-* "http://www.anttikupila.com/flash/getting-jpg-dimensions-with-as3-without-loading-the-entire-file/":http://www.anttikupila.com/flash/getting-jpg-dimensions-with-as3-without-loading-the-entire-file/
-* "http://imagesize.rubyforge.org/":http://imagesize.rubyforge.org/
+References
+----------
 
-h2. Licence
+* [Pennysmalls - Find jpeg dimensions fast in pure Ruby, no image library needed](http://pennysmalls.com/find-jpeg-dimensions-fast-in-pure-ruby-no-ima)
+* [DZone - Determine Image Size](http://dzone.com/snippets/determine-image-size)
+* [Antti Kupila - Getting JPG dimensions with AS3 without loading the entire file](http://www.anttikupila.com/flash/getting-jpg-dimensions-with-as3-without-loading-the-entire-file/)
+* [imagesize gem](http://imagesize.rubyforge.org/)
+
+Licence
+-------
 
 MIT, see file MIT_LICENCE
