@@ -11,6 +11,7 @@ Gem::Specification.new do |s|
     "README.md"
   ]
   s.files = [
+    "MIT-LICENSE",
     "README.md",
     "lib/fastimage.rb",
     "test/fixtures/faulty.jpg",

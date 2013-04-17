@@ -101,4 +101,4 @@ References
 Licence
 -------
 
-MIT, see file MIT_LICENCE
+MIT, see file [MIT-LICENSE](MIT-LICENSE)
